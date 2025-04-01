@@ -1,0 +1,11 @@
+.projects, #projectsList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#projectsList a{
+    text-decoration: none;
+}
+

@@ -1,0 +1,37 @@
+<div>
+  <app-button (click)="sortByName()" label="Filtruoti pagal darbuotojo vardą"></app-button>
+  <app-button (click)="sortByDate()" label="Filtruoti pagal datą"></app-button>
+  <app-button (click)="sortByEmployeeId()" label="Filtruoti pagal darbuotojo ID"></app-button>
+  <app-button (click)="sortByInventory()" label="Filtruoti pagal partijos numerį"></app-button>
+</div>
+
+<div id="employeeProjects">
+  <div *ngFor="let employee of employees">
+    <h3>{{ employee.firstName }} {{ employee.lastName }}</h3>
+    <p>Darbuotojo ID: {{ employee.employeeId }}</p>
+    <p>Prisijungimo laikas, atliekant proektą: {{employee.loginDate}}</p>
+    
+    <div *ngIf="employee.projects?.length > 0">
+      <h4>Įvykdyti darbuotojų proektai:</h4>
+      <ul>
+        <li *ngFor="let project of employee.projects">
+          Proekto ID: {{ project.projectId }}
+          <ul>
+            <li *ngFor="let item of project.inventory">
+              Partijos numeris: {{ item }}
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="!employee.projects?.length">
+      <p>Nėra proektų vykdomų šiuo metu</p>
+    </div>
+
+    <hr />
+  </div>
+</div>
+<app-button (click)="exportToPDF()" label="Spausdinti PDF"></app-button>
+
+

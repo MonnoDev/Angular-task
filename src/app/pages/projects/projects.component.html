@@ -1,0 +1,23 @@
+<div class="projectContainer">
+    <input type="text" id="productInput" placeholder="Nuskenuokite produkto kodą" #productInput />
+
+    <app-button (click)="addProductToProject(productInput)" label="Pridėti produktą"></app-button>
+  
+    <p id="errorMessage">{{ errorMessage }}</p>
+
+    <app-button *ngIf="showDeclineButton" (click)="declineIssuance()" label="Atmesti išdavimą"></app-button>
+    
+    <span *ngIf="showDeclineButton">{{ countdown }} sekundės</span>
+  
+    <app-button (click)="confirmIssuance()" label="Užbaigti"></app-button>
+    
+    <div *ngIf="showConfirmation" class="modal">
+      <h3>Patvirtinti išdavimą</h3>
+      <p>Darbuotojo ID:</p>
+      <input [(ngModel)]="enteredEmployeeId" placeholder="Įveskite savo ID" />
+
+      <app-button (click)="sendDataToDB()" label="Patvirtinti ir siųsti"></app-button>
+      <app-button (click)="showConfirmation = false" label="Atšaukti"></app-button>
+    </div>
+  </div>
+  

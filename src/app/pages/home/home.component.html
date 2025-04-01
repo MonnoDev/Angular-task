@@ -1,0 +1,21 @@
+<div class="projects">
+    <h2>Šiuo metu ceche vykdomi projektai.</h2>
+    <div>Prašome pasirinkti projektą</div>
+  </div>
+  
+  <div id="projectsList">
+    <div *ngFor="let project of projects">
+      <a [routerLink]="['/projects', project.id]">
+        {{ project.name }}
+      </a>
+      <div *ngIf="isApprover">
+        <app-button (click)="editProject(project.id)" label="Readaguoti proekta"></app-button>
+        <app-button (click)="deleteProject(project.id)" label="Panaikinti proekta"></app-button>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="isApprover">
+    <app-button (click)="linkToAdminView()" label="Peržiūrėti visus darbuotojų pradėtus projektus"></app-button>
+  </div>
+  

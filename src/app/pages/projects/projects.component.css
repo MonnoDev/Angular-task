@@ -1,0 +1,13 @@
+.projectContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+input{
+    width: 30vh;
+    height: 5vh;
+    background-color: transparent;
+}
